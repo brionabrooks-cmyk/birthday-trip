@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amalfi Coast — 36th Birthday Trip · May 13–20, 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --sand: #EDE7DC;
+    --stone: #C4B8A8;
+    --terracotta: #C4714A;
+    --terra-light: #F2E4D8;
+    --sea: #3A6B7E;
+    --sea-light: #D6E8EF;
+    --wine: #7A3B4E;
+    --wine-light: #F0DDE3;
+    --sage: #4A6B52;
+    --sage-light: #DCE9DE;
+    --ink: #1C1814;
+    --muted: #7A7068;
+    --border: #D8D0C4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .page { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+  /* Header */
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; margin-bottom: 3rem; }
+  .header-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; margin-bottom: 0.75rem; }
+  .header-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 500; color: var(--ink); line-height: 1.15; margin-bottom: 0.5rem; }
+  .header-title em { font-style: italic; color: var(--terracotta); }
+  .header-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.75rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .meta-chip {
+    font-size: 12px; padding: 5px 14px; border-radius: 100px;
+    border: 1px solid var(--border); background: white; color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .meta-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); }
+  .bday-chip { background: var(--wine-light); border-color: #D4A0B0; color: var(--wine); font-weight: 500; }
+
+  /* Section */
+  .section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500; margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .section-label span { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--stone); }
+
+  /* Timeline */
+  .tl-item { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin-bottom: 3px; }
+  .tl-date {
+    background: var(--sand); padding: 14px 12px;
+    border-radius: 8px 0 0 8px; border: 1px solid var(--border); border-right: none;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  }
+  .tl-date-main { font-size: 12px; font-weight: 500; color: var(--ink); }
+  .tl-date-day { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .tl-body {
+    background: white; padding: 14px 18px;
+    border-radius: 0 8px 8px 0; border: 1px solid var(--border);
+  }
+  .tl-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .tl-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .tl-schedule { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.9; }
+  .tl-schedule strong { color: var(--ink); font-weight: 500; }
+
+  /* Birthday row */
+  .tl-bday .tl-date { background: var(--wine-light); border-color: #D4A0B0; }
+  .tl-bday .tl-date-main { color: var(--wine); }
+  .tl-bday .tl-body { background: #FDF8FA; border-color: #D4A0B0; }
+
+  /* Badges */
+  .badge { font-size: 10px; padding: 2px 9px; border-radius: 100px; font-weight: 500; white-space: nowrap; }
+  .badge-travel { background: var(--sand); color: var(--muted); }
+  .badge-water { background: var(--sea-light); color: var(--sea); }
+  .badge-food { background: var(--sage-light); color: var(--sage); }
+  .badge-wine { background: var(--wine-light); color: var(--wine); }
+  .badge-bday { background: var(--wine-light); color: var(--wine); }
+
+  /* Booking checklist */
+  .book-item {
+    display: grid; grid-template-columns: 1fr auto auto;
+    align-items: center; gap: 16px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 4px;
+  }
+  .book-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .book-detail { font-size: 11px; color: var(--muted); }
+  .book-when { font-size: 11px; color: var(--muted); text-align: right; white-space: nowrap; }
+  .status {
+    font-size: 11px; padding: 3px 12px; border-radius: 100px;
+    white-space: nowrap; font-weight: 500; border: 1px solid transparent;
+  }
+  .s-todo { background: var(--sand); color: var(--muted); border-color: var(--border); }
+  .s-monitor { background: #FEF3E2; color: #8A5A00; border-color: #F5D99A; }
+  .s-research { background: #EEF0FE; color: #3D47A0; border-color: #C0C6F5; }
+  .s-booked { background: var(--sage-light); color: var(--sage); border-color: #A8CDB0; }
+
+  /* Restaurants */
+  .rest-item {
+    display: grid; grid-template-columns: 1fr auto auto;
+    align-items: center; gap: 16px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 4px;
+  }
+  .rest-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .rest-note { font-size: 11px; color: var(--muted); }
+  .tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; white-space: nowrap; font-weight: 500; }
+  .tag-exclusive { background: var(--wine-light); color: var(--wine); }
+  .tag-oldworld { background: #FEF3E2; color: #7A4F00; }
+  .tag-capri { background: var(--sea-light); color: var(--sea); }
+
+  /* Hotels */
+  .hotel-item {
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: start; gap: 16px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 4px;
+  }
+  .hotel-name { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .hotel-note { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .hotel-price { font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; text-align: right; }
+  .hotel-location { font-size: 10px; padding: 2px 9px; border-radius: 100px; font-weight: 500; margin-bottom: 6px; display: inline-block; }
+  .loc-naples { background: var(--terra-light); color: var(--terracotta); }
+  .loc-sorrento { background: var(--sage-light); color: var(--sage); }
+  .loc-positano { background: var(--sea-light); color: var(--sea); }
+  .tbd-banner {
+    background: var(--terra-light); border: 1px solid #E8C4AA;
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 12px;
+    font-size: 12px; color: var(--terracotta); line-height: 1.6;
+  }
+  .tbd-banner strong { font-weight: 500; display: block; margin-bottom: 2px; }
+
+  /* Footer */
+  .footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-style: italic; color: var(--stone); }
+  .footer-right { font-size: 11px; color: var(--stone); }
+  .version-tag { font-size: 10px; padding: 3px 10px; border-radius: 100px; background: var(--sand); color: var(--muted); font-weight: 500; }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .page { padding: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .book-item, .rest-item { grid-template-columns: 1fr; gap: 8px; }
+    .tl-item { grid-template-columns: 70px 1fr; }
+    .meta-row { gap: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-eyebrow">Birthday trip · Campania, Italy</div>
+    <h1 class="header-title">Amalfi Coast<br><em>36th birthday</em></h1>
+    <div class="header-sub">May 13–20, 2027 · 7 nights · Departing Atlanta (ATL)</div>
+    <div class="meta-row">
+      <div class="meta-chip"><span class="dot"></span>1–3 people</div>
+      <div class="meta-chip"><span class="dot"></span>Base: TBD (Naples / Sorrento / Positano)</div>
+      <div class="meta-chip"><span class="dot"></span>Fly into Naples (NAP)</div>
+      <div class="meta-chip bday-chip">Birthday: Mon May 17 — wine · cruise · dinner</div>
+    </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="section">
+    <div class="section-label">Itinerary <span>May 13–20, 2027</span></div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 13</div><div class="tl-date-day">Wed</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Depart Atlanta <span class="badge badge-travel">travel</span></div>
+        <div class="tl-desc">Overnight flight ATL → NAP via Rome (FCO) or Frankfurt. Arrive Naples morning of the 14th.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 14</div><div class="tl-date-day">Thu</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Arrive Italy <span class="badge badge-travel">arrival</span></div>
+        <div class="tl-desc">Transfer to home base (~0–1.5 hrs depending on location). Check in, decompress, first walk. Easy dinner nearby — no agenda.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 15</div><div class="tl-date-day">Fri</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Private boat charter — full day <span class="badge badge-water">on the water</span></div>
+        <div class="tl-desc">Furore Fjord, Li Galli islands, swimming in the coves, lunch aboard. First big day on the water along the Amalfi Coast.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 16</div><div class="tl-date-day">Sat</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Pasta-making class + explore Positano <span class="badge badge-food">experience</span></div>
+        <div class="tl-desc">Morning hands-on lesson with a local — make and eat fresh pasta. Afternoon: stairways, boutiques, Spiaggia Grande beach club. Dinner at a classic trattoria.</div>
+      </div>
+    </div>
+
+    <div class="tl-item tl-bday">
+      <div class="tl-date"><div class="tl-date-main" style="color: #7A3B4E; font-weight:500">May 17</div><div class="tl-date-day" style="color:#B07080">Mon — bday</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Birthday — wine · cruise · dinner <span class="badge badge-bday">your day</span></div>
+        <div class="tl-desc">A full, celebratory arc from afternoon into evening.</div>
+        <div class="tl-schedule">
+          <strong>Morning</strong> — slow start, beach or terrace, aperitivo lunch<br>
+          <strong>3–5pm</strong> — Private wine tasting: Fiano di Avellino, Aglianico, Campanian wines<br>
+          <strong>6–8pm</strong> — Sunset cocktail cruise along the coast<br>
+          <strong>8:30pm</strong> — Birthday dinner: La Sponda (Le Sirenuse) or Il San Pietro · reserve months ahead
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 18</div><div class="tl-date-day">Tue</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Day trip to Capri <span class="badge badge-water">on the water</span></div>
+        <div class="tl-desc">Ferry from Positano or Sorrento to Capri. Blue Grotto, Piazzetta lunch, Via Tragara walk. Dinner at Glicine (Capri Palace) or return by evening ferry.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 19</div><div class="tl-date-day">Wed</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Amalfi town + Ravello + farewell dinner <span class="badge badge-food">experience</span></div>
+        <div class="tl-desc">Ferry to Amalfi: Duomo, paper museum, limoncello tasting. Drive up to Ravello for views. Farewell dinner at Rossellinis (Palazzo Avino) or back at base.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-date-main">May 20</div><div class="tl-date-day">Thu</div></div>
+      <div class="tl-body">
+        <div class="tl-title">Depart Italy <span class="badge badge-travel">travel</span></div>
+        <div class="tl-desc">Morning transfer to Naples airport (allow 30–120 min depending on base). Optional quick stop in Sorrento old town if time allows. Fly NAP → ATL.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking checklist -->
+  <div class="section">
+    <div class="section-label">Booking checklist <span>mark off as you go</span></div>
+
+    <div class="book-item">
+      <div><div class="book-name">✈ Flights — ATL → NAP</div><div class="book-detail">Monitor Google Flights now · Best fares ~8–10 months out · Route via Rome (FCO) or Frankfurt</div></div>
+      <div class="book-when">Monitor now</div>
+      <span class="status s-monitor">Monitoring</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🏨 Hotel / Airbnb — 7 nights (May 14–20)</div><div class="book-detail">Location TBD: Naples · Sorrento · or Positano · See lodging section below</div></div>
+      <div class="book-when">By Oct 2026</div>
+      <span class="status s-research">Researching</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🍽 Birthday dinner — May 17, 8:30pm</div><div class="book-detail">La Sponda (Le Sirenuse) or Il San Pietro di Positano · Email/call directly · Fills 3–6 months out</div></div>
+      <div class="book-when">Jan–Feb 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">⛵ Private boat charter — May 15, full day</div><div class="book-detail">Good captains book fast for May · Contact 3–4 months out · Budget ~€600–900/day</div></div>
+      <div class="book-when">Feb 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🍷 Wine tasting — May 17, 3–5pm</div><div class="book-detail">Private tasting: Fiano di Avellino, Aglianico, Greco di Tufo · Arrange via hotel or book a local cantina</div></div>
+      <div class="book-when">Mar 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🌅 Sunset cocktail cruise — May 17, 6–8pm</div><div class="book-detail">2-hr birthday cruise · Coordinate timing: wine ends 5:45pm, cruise 6pm, dinner 8:30pm</div></div>
+      <div class="book-when">Mar 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🍝 Pasta-making class — May 16, morning</div><div class="book-detail">Private lesson preferred · Local family or cooking school in Positano or Praiano</div></div>
+      <div class="book-when">Mar 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="book-item">
+      <div><div class="book-name">🚢 Capri ferry — May 18</div><div class="book-detail">From Positano or Sorrento → Capri · NLG or Alilauro · Book ~4 weeks out or via hotel concierge</div></div>
+      <div class="book-when">Apr 2027</div>
+      <span class="status s-todo">To book</span>
+    </div>
+  </div>
+
+  <!-- Lodging -->
+  <div class="section">
+    <div class="section-label">Lodging options <span>location TBD — confirming closer to time</span></div>
+    <div class="tbd-banner">
+      <strong>Base location to be confirmed</strong>
+      Three options depending on budget and vibe: Naples (cheapest, city feel, 1.5–2.5 hrs to the coast daily), Sorrento (best middle ground — affordable, 45 min ferry to Positano, charming old town), or Positano (most expensive, most immersive, already on the coast).
+    </div>
+
+    <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;margin-bottom:8px">Naples — budget-friendly city base</div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-naples">Naples</span>
+        <div class="hotel-name">Hotel Romeo</div>
+        <div class="hotel-note">Design hotel, harbour views, rooftop restaurant. Upscale pick in the city.</div>
+      </div>
+      <div class="hotel-price">$180–280/night</div>
+    </div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-naples">Naples</span>
+        <div class="hotel-name">Airbnb — Naples historic centre</div>
+        <div class="hotel-note">Spacious apartment in Quartieri Spagnoli or Chiaia. Excellent value for 2–3 people. Check Superhost listings.</div>
+      </div>
+      <div class="hotel-price">$100–180/night</div>
+    </div>
+
+    <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;margin:16px 0 8px">Sorrento — recommended middle ground</div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-sorrento">Sorrento</span>
+        <div class="hotel-name">Hotel Antiche Mura</div>
+        <div class="hotel-note">Pool, clifftop garden, right in the old town. Excellent value for a 4-star feel.</div>
+      </div>
+      <div class="hotel-price">$200–320/night</div>
+    </div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-sorrento">Sorrento</span>
+        <div class="hotel-name">Airbnb — Sorrento cliffside</div>
+        <div class="hotel-note">Sea-view apartments and villas widely available. Much better value than Positano for similar views.</div>
+      </div>
+      <div class="hotel-price">$150–280/night</div>
+    </div>
+
+    <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;margin:16px 0 8px">Positano — most immersive (higher cost)</div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-positano">Positano</span>
+        <div class="hotel-name">Hotel Buca di Bacco</div>
+        <div class="hotel-note">Steps from the beach, rooftop bar, beloved classic. The most affordable reputable option in Positano.</div>
+      </div>
+      <div class="hotel-price">$280–420/night</div>
+    </div>
+    <div class="hotel-item">
+      <div>
+        <span class="hotel-location loc-positano">Positano</span>
+        <div class="hotel-name">Airbnb — Positano village</div>
+        <div class="hotel-note">Apartments with terrace views available but expensive for the area. Search early — May listings go fast.</div>
+      </div>
+      <div class="hotel-price">$250–450/night</div>
+    </div>
+  </div>
+
+  <!-- Restaurants -->
+  <div class="section">
+    <div class="section-label">Restaurant shortlist <span>mix of exclusive + old-world</span></div>
+
+    <div class="rest-item">
+      <div><div class="rest-name">La Sponda — Le Sirenuse, Positano</div><div class="rest-note">Candlelit terrace, iconic old-world romance. Top birthday dinner pick — May 17.</div></div>
+      <span class="tag tag-oldworld">old-world</span>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="rest-item">
+      <div><div class="rest-name">Il San Pietro di Positano</div><div class="rest-note">Cliff-hanging terrace, Michelin-starred modern Italian. Birthday dinner alternative — May 17.</div></div>
+      <span class="tag tag-exclusive">exclusive</span>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="rest-item">
+      <div><div class="rest-name">Ristorante Max, Positano</div><div class="rest-note">Art-filled, intimate, beloved by locals. Great for May 16 pre-birthday dinner.</div></div>
+      <span class="tag tag-oldworld">old-world</span>
+      <span class="status s-research">Researching</span>
+    </div>
+    <div class="rest-item">
+      <div><div class="rest-name">Lo Guarracino, Positano</div><div class="rest-note">Terrace, net-to-table seafood, cash only. Old-world soul — great for arrival dinner May 14.</div></div>
+      <span class="tag tag-oldworld">old-world</span>
+      <span class="status s-research">Researching</span>
+    </div>
+    <div class="rest-item">
+      <div><div class="rest-name">Glicine — Capri Palace, Capri</div><div class="rest-note">2-Michelin-star, modern Campanian, outstanding wine list. For Capri day — May 18.</div></div>
+      <span class="tag tag-capri">Capri</span>
+      <span class="status s-todo">To book</span>
+    </div>
+    <div class="rest-item">
+      <div><div class="rest-name">Rossellinis — Palazzo Avino, Ravello</div><div class="rest-note">Michelin-starred. Farewell dinner candidate for the Ravello day — May 19.</div></div>
+      <span class="tag tag-exclusive">exclusive</span>
+      <span class="status s-todo">To book</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">Amalfi Coast, May 2027 — updated as you go</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="version-tag">v4</span>
+      <span class="footer-right">Built with Claude · Last updated May 2025</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
